@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_095017) do
+ActiveRecord::Schema.define(version: 2022_02_04_175119) do
+
+  create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", default: "example", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "board_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_groups_on_board_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "statuses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "status", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", default: "SampleTask", null: false
+    t.text "detail"
+    t.datetime "dead_line"
+    t.bigint "user_id"
+    t.bigint "status_id"
+    t.bigint "board_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_tasks_on_board_id"
+    t.index ["status_id"], name: "index_tasks_on_status_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,4 +73,9 @@ ActiveRecord::Schema.define(version: 2022_02_04_095017) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "groups", "boards"
+  add_foreign_key "groups", "users"
+  add_foreign_key "tasks", "boards"
+  add_foreign_key "tasks", "statuses"
+  add_foreign_key "tasks", "users"
 end
