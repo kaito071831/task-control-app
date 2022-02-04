@@ -37,14 +37,12 @@ ActiveRecord::Schema.define(version: 2022_02_04_175119) do
     t.string "title", default: "SampleTask", null: false
     t.text "detail"
     t.datetime "dead_line"
-    t.bigint "user_id"
     t.bigint "status_id"
     t.bigint "board_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_tasks_on_board_id"
     t.index ["status_id"], name: "index_tasks_on_status_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -77,5 +75,4 @@ ActiveRecord::Schema.define(version: 2022_02_04_175119) do
   add_foreign_key "groups", "users"
   add_foreign_key "tasks", "boards"
   add_foreign_key "tasks", "statuses"
-  add_foreign_key "tasks", "users"
 end
