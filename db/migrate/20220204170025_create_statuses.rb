@@ -1,7 +1,7 @@
 class CreateStatuses < ActiveRecord::Migration[6.1]
   def change
     create_table :statuses do |t|
-      t.string :status, null: false, default: ""
+      t.string :status, null: false, default: "", unique: true
       t.timestamps
     end
   end
