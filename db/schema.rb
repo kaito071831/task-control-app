@@ -10,20 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_175119) do
+ActiveRecord::Schema.define(version: 2022_02_05_152526) do
 
-  create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", default: "example", null: false
+  create_table "boardgroups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "board_id"
+  create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", default: "example", null: false
+    t.bigint "boardgroup_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["board_id"], name: "index_groups_on_board_id"
+    t.index ["boardgroup_id"], name: "index_boards_on_boardgroup_id"
+  end
+
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.bigint "boardgroup_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["boardgroup_id"], name: "index_groups_on_boardgroup_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
@@ -43,6 +52,15 @@ ActiveRecord::Schema.define(version: 2022_02_04_175119) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_tasks_on_board_id"
     t.index ["status_id"], name: "index_tasks_on_status_id"
+  end
+
+  create_table "teams", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "boardgroup_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["boardgroup_id"], name: "index_teams_on_boardgroup_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -71,8 +89,11 @@ ActiveRecord::Schema.define(version: 2022_02_04_175119) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "groups", "boards"
+  add_foreign_key "boards", "boardgroups"
+  add_foreign_key "groups", "boardgroups"
   add_foreign_key "groups", "users"
   add_foreign_key "tasks", "boards"
   add_foreign_key "tasks", "statuses"
+  add_foreign_key "teams", "boardgroups"
+  add_foreign_key "teams", "users"
 end
