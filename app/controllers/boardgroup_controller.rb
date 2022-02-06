@@ -5,7 +5,7 @@ class BoardgroupController < ApplicationController
   end
 
   def show
-    
+    @board = Board.where(boardgroup_id: params[:id])
   end
 
   def new

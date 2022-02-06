@@ -1,3 +1,4 @@
-<% @board.each do |bd| %>
-  <%= bd.title %>
+<h1>ボード一覧</h1>
+<% @board.each do | bd | %>
+  <%= link_to bd.title, boardgroup_board_path(bd.id) %>
 <% end %>
