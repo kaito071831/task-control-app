@@ -5,14 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Status.create!(
-  status: 'Todo'
-)
+unless Status.exists?
+  Status.create!(
+    status: 'Todo'
+  )
+  
+  Status.create!(
+    status: '作業中'
+  )
+  
+  Status.create!(
+    status: '完了'
+  )
+end
 
-Status.create!(
-  status: '作業中'
-)
 
-Status.create!(
-  status: '完了'
-)
+unless Boardgroup.exists?
+  board_group = Boardgroup.create(title: "sample1")
+  board = board_group.boards.create(title: "example1")
+  task = board.tasks.create(title: "task1", detail: "aaaaa", status_id: 1)
+end
+
+if User.exists?
+  team = Team.create(user_id: 1, boardgroup_id: 1)
+end
