@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable
   has_many :teams
+  has_many :boardgroups, through: :teams
 end

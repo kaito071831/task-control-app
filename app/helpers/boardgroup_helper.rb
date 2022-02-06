@@ -1,0 +1,2 @@
+module BoardgroupHelper
+end
