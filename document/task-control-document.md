@@ -34,3 +34,6 @@
 
 ### BoardGroup: ボードのグループ
 	Detail: タイトル, Board
+
+### Teams: 各ボードの閲覧許可ユーザーのテーブル
+	Detail: user, boardgroup
