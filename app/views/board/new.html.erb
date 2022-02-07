@@ -1,2 +1,14 @@
-<h1>Board#new</h1>
-<p>Find me in app/views/board/new.html.erb</p>
+<h1>新規作成</h1>
+<%= form_with model: @board, url: boardgroup_board_index_path do |form| %>
+  <table>
+    <tr>
+      <th>ボードのタイトル</th>
+      <td><%= form.text_field :title %></td>
+      <%= form.hidden_field :boardgroup_id, value: params[:boardgroup_id] %>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= form.submit '作成' %></td>
+    </tr>
+  </table>
+<% end %>

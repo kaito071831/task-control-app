@@ -1,4 +1,5 @@
 <h1>ボード一覧</h1>
+<%= link_to 'ボード作成', new_boardgroup_board_path(params[:id]) %>
 <% @board.each do | bd | %>
   <%= link_to bd.title, boardgroup_board_path(bd.id) %>
 <% end %>
