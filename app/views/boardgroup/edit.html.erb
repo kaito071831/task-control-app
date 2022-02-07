@@ -1,2 +1,5 @@
-<h1>Boardgroup#edit</h1>
-<p>Find me in app/views/boardgroup/edit.html.erb</p>
+<h1>グループ編集</h1>
+<%= form_with @group, url: boardgroup_path(params[:id]) do |form| %>
+  <%= render :partial => "form", :locals=>{:form => form} %>
+<% end %>
+
