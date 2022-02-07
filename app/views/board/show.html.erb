@@ -1,2 +1,4 @@
-<h1>Board#show</h1>
-<p>Find me in app/views/board/show.html.erb</p>
+<h1>タスク一覧</h1>
+<% @todo_tasks.each do | task | %>
+  <%= link_to task.title, boardgroup_board_task_path(task.board_id, task.id) %>
+<% end %>
