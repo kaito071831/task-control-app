@@ -1,14 +1,4 @@
 <h1>新規作成</h1>
 <%= form_with model: @group, url: boardgroup_index_path do |form| %>
-  <table>
-  
-    <tr>
-      <th>グループのタイトル</th>
-      <td><%= form.text_field :title %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= form.submit '作成' %></td>
-    </tr>
-  </table>
+  <%= render :partial => "form", :locals=>{:form => form} %>
 <% end %>
