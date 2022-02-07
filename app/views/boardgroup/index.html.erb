@@ -1,5 +1,4 @@
-<h1>Boardgroup#index</h1>
-<p>Find me in app/views/boardgroup/index.html.erb</p>
+<h1>所属グループ一覧</h1>
 <% @group.each do | board | %>
   <%= link_to board.title, boardgroup_path(board.id) %>
 <% end %>
