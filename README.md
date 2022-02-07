@@ -1,24 +1,18 @@
-# README
+# task-control
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+This application allows you to visually display and manage the tasks you have. You can also share your tasks with others to collaboratively manage them.
 
-Things you may want to cover:
+## Development environment
+---
 
-* Ruby version
+### OS: Ubuntu 20.04
 
-* System dependencies
+### Language: Ruby 2.7.5
 
-* Configuration
+### Framework: Ruby on Rails 6.1.4.4
 
-* Database creation
+### Bundler: 2.1.4
 
-* Database initialization
+### DB: MySQL 8.0.28
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
