@@ -1,18 +1,26 @@
 <h1>タスク新規作成</h1>
-<%= form_with model: [@board, @task] do |form| %>
-  <div>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.text_area :detail %>
-  </div>
-  <div>
-    <%= form.datetime_field :dead_line %>
-  </div>
-  <div>
-    <%= form.collection_select :status_id, :id, Status.all, :id, :status %>
-  </div>
-  <div>
-    <%= form.submit "作成"%>
-  </div>
+<%= form_with model: @task, url: boardgroup_board_task_index_path do |form| %>
+  <table>
+    <tr>
+      <th>タスクのタイトル</th>
+      <td><%= form.text_field :title %></td>
+    </tr>
+    <tr>
+      <th>詳細情報</th>
+      <td><%= form.text_area :detail %></td>
+    </tr>
+    <tr>
+      <th>締切</th>
+      <td><%= form.datetime_field :dead_line %></td>
+    </tr>
+    <tr>
+      <th>状態</th>
+      <td><%= form.select :status_id, @statuses.map{ |st| [st.status, st.id] } %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <%= form.hidden_field :board_id, value: params[:board_id] %>
+      <td><%= form.submit '作成' %></td>
+    </tr>
+  </table>
 <% end %>
