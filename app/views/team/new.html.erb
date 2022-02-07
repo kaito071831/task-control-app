@@ -1,2 +1,14 @@
-<h1>Team#new</h1>
-<p>Find me in app/views/team/new.html.erb</p>
+<h1>共有設定</h1>
+<%= form_with model: @team, url: boardgroup_team_index_path do |form| %>
+  <table>
+    <tr>
+      <th>共有したいユーザーID</th>
+      <td><%= form.text_field :user_id %></td>
+      <%= form.hidden_field :boardgroup_id, value: params[:boardgroup_id] %>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= form.submit '作成' %></td>
+    </tr>
+  </table>
+<% end %>
