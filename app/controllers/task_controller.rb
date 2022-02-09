@@ -31,6 +31,13 @@ class TaskController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      redirect_to boardgroup_board_url(params[:boardgroup_id], params[:board_id]), notice: "Success"
+    else
+      flash.now[:alert] = "Failed"
+      render :show
+    end
   end
 
   private
