@@ -10,7 +10,7 @@ class TeamController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to boardgroup_path(params[:boardgroup_id]), notice: "Success"
+      redirect_to boardgroup_url(params[:boardgroup_id]), notice: "Success"
     else
       flash.now[:alert] = "Failed"
       render :new

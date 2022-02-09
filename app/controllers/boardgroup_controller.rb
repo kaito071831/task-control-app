@@ -17,7 +17,7 @@ class BoardgroupController < ApplicationController
     if @group.save
       @team = Team.new(user_id: current_user.id, boardgroup_id: @group.id)
       if @team.save
-        redirect_to boardgroup_index_path, notice: "Success"
+        redirect_to boardgroup_index_url, notice: "Success"
       else
         flash.now[:alert] = "Failed"
         render :new
@@ -29,10 +29,17 @@ class BoardgroupController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @group = Boardgroup.find(params[:id])
   end
 
   def update
+    @group = Boardgroup.find(params[:id])
+    if @group.update(group_params)
+      redirect_to boardgroup_index_url, notice: "Success"
+    else
+      flash.now[:alert] = "Failed"
+      render :edit
+    end
   end
 
   def destroy

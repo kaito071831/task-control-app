@@ -11,7 +11,7 @@ class TaskController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to boardgroup_board_path(params[:boardgroup_id], @task.board_id), notice: "Success"
+      redirect_to boardgroup_board_url(params[:boardgroup_id], @task.board_id), notice: "Success"
     else
       flash.now[:alert] = "Failed"
       render :new

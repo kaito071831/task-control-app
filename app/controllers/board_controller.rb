@@ -10,7 +10,7 @@ class BoardController < ApplicationController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to boardgroup_path(@board.boardgroup_id), notice: "Success"
+      redirect_to boardgroup_url(@board.boardgroup_id), notice: "Success"
     else
       flash.now[:alert] = "Failed"
       render :new
