@@ -19,7 +19,15 @@ class TaskController < ApplicationController
   end
 
   def edit
-    
+    @task = Task.find(params[:id])
+    @statuses = Status.all
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to boardgroup_url(params[:boardgroup_id])
+    end
   end
 
   def destroy

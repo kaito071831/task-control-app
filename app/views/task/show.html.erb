@@ -1,3 +1,4 @@
 <h1>Task#show</h1>
+<%= link_to 'タスク編集', edit_boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]) %>
 <p><%= @task.title %></p>
 <p><%= @task.detail %></p>
