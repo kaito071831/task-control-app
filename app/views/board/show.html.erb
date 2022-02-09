@@ -1,6 +1,14 @@
 <h1>タスク一覧</h1>
 <%= link_to 'タスク作成', new_boardgroup_board_task_path(params[:boardgroup_id], params[:id]) %>
 <%= link_to 'ボード編集', edit_boardgroup_board_path(params[:boardgroup_id], params[:id]) %>
-<% @todo_tasks.each do | task | %>
-  <%= link_to task.title, boardgroup_board_task_path(params[:boardgroup_id], task.board_id, task.id) %>
+<% @todo_tasks.each do |task| %>
+  <p><%= link_to task.title, boardgroup_board_task_path(params[:boardgroup_id], task.board_id, task.id) %></p>
+<% end %>
+
+<% @do_tasks.each do |dtask| %>
+  <p><%= link_to dtask.title, boardgroup_board_task_path(params[:boardgroup_id], dtask.board_id, dtask.id) %></p>
+<% end %>
+
+<% @finish_tasks.each do |ftask| %>
+  <p><%= link_to ftask.title, boardgroup_board_task_path(params[:boardgroup_id], ftask.board_id, ftask.id) %></p>
 <% end %>
