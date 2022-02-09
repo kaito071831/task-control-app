@@ -34,6 +34,12 @@ class BoardController < ApplicationController
   end
 
   def destroy
+    @board = Board.find(params[:id])
+    if @board.destroy
+      redirect_to boardgroup_url(params[:boardgroup_id]), notice: "Success"
+    else
+      
+    end
   end
 
   private
