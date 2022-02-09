@@ -4,5 +4,5 @@
 <%= link_to 'グループ削除', boardgroup_path(params[:id]), method: :delete %>
 <%= link_to '共有設定', boardgroup_team_path(params[:id], current_user.id) %>
 <% @board.each do | bd | %>
-  <%= link_to bd.title, boardgroup_board_path(bd.id) %>
+  <%= link_to bd.title, boardgroup_board_path(bd.boardgroup_id, bd.id) %>
 <% end %>
