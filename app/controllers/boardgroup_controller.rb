@@ -43,6 +43,13 @@ class BoardgroupController < ApplicationController
   end
 
   def destroy
+    @group = Boardgroup.find(params[:id])
+    if @group.destroy
+      redirect_to boardgroup_index_url, notice: "Success"
+    else
+      flash.now[:alert] = "Failed"
+      render :show
+    end
   end
 
   private
