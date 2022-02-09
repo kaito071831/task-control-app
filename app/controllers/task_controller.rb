@@ -27,6 +27,9 @@ class TaskController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to boardgroup_url(params[:boardgroup_id])
+    else
+      flash.now[:alert] = "Failed"
+      render :edit
     end
   end
 
