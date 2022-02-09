@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore enviroment variable
 .env
+
+# Ignore vscode setting file
+.vscode
