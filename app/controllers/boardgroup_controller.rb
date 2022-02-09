@@ -6,6 +6,7 @@ class BoardgroupController < ApplicationController
 
   def show
     @board = Board.where(boardgroup_id: params[:id])
+    @destroy_team = Team.where("(user_id = ?) AND (boardgroup_id = ?)", current_user.id, params[:id])
   end
 
   def new
