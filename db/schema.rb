@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_152526) do
     t.string "title", default: "SampleTask", null: false
     t.text "detail"
     t.datetime "dead_line"
-    t.bigint "status_id", default: 0, null: false
+    t.bigint "status_id", default: 1, null: false
     t.bigint "board_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
