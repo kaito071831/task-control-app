@@ -38,7 +38,8 @@ class BoardController < ApplicationController
     if @board.destroy
       redirect_to boardgroup_url(params[:boardgroup_id]), notice: "Success"
     else
-      
+      flash.now[:alert] = "Failed"
+      render :show
     end
   end
 
