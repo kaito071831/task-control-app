@@ -1,4 +1,6 @@
 class TeamController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @teams = Team.where(boardgroup_id: params[:boardgroup_id])
   end

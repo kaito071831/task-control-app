@@ -1,4 +1,6 @@
 class BoardController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @todo_tasks = Task.where("(board_id = ?) AND (status_id = ?)", params[:id], 1)
     @do_tasks = Task.where("(board_id = ?) AND (status_id = ?)", params[:id], 2)
