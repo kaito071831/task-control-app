@@ -62,3 +62,6 @@ gem 'devise-i18n'
 
 # 環境変数管理
 gem 'dotenv-rails'
+
+# CSSフレームワーク
+gem "tailwindcss-rails", "~> 2.0"
