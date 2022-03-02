@@ -1,3 +1,11 @@
-<h1 class="text-3xl font-bold underline">Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-<p>ここがトップページです</p>
+<div class="h-full text-center flex items-center bg-gray-300">
+  <div class="mx-auto">
+    <h1 class="text-6xl leading-normal">あなたのタスクを視覚的に管理・共有します</h1>
+    <p class="leading-normal">あなたの日常を変えるのに必要なものは、あなたのメールアドレスとあなたの決めたパスワードです</p>
+    <h2 class="text-4xl leading-loose">さあ、始めよう！</h2>
+    <div class="flex justify-center space-x-2">
+      <%= link_to "ログイン", new_user_session_path, class: "block border-none rounded bg-gray-800 text-white text-3xl p-1" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "block border-none rounded bg-gray-800 text-white text-3xl p-1" %>
+    </div>
+  </div>
+</div>
