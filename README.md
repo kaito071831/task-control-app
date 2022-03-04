@@ -6,9 +6,7 @@ This application allows you to visually display and manage the tasks you have. Y
 ## Development environment
 ---
 
-* OS: Ubuntu 20.04
-* Language: Ruby 2.7.5
-* Web Framework: Ruby on Rails 6.1.4.4
-* Bundler: 2.1.4
-* DB: MySQL 8.0.28
-
+* Ruby 2.7.5
+* Ruby on Rails 6.1.4.4
+* Bundler 2.1.4
+* MySQL 8.0.28
