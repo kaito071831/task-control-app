@@ -1,7 +1,7 @@
 <div class="h-full text-center bg-gray-300 p-5">
-  <div class="border-solid border-2 border-black  lg:w-1/4 sm:w-0 m-auto">
-    <div class="border-solid border-1 border-black bg-gray-500">
-      <h2><%= t('.sign_in') %></h2>
+  <div class="border-solid border-2 border-black bg-gray-200 lg:w-1/4 sm:w-0 m-auto">
+    <div class="border-solid border-1 border-black bg-gray-600">
+      <h2 class="text-white"><%= t('.sign_in') %></h2>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="">
@@ -22,11 +22,11 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit t('.sign_in') %>
+        <%= f.submit t('.sign_in'), class: "border-none rounded bg-gray-800 text-white p-1 my-2" %>
       </div>
     <% end %>
   </div>
-  <div>
+  <div class="my-3">
     <%= render "devise/shared/links" %>
   </div>
 </div>
