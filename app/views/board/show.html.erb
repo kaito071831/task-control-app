@@ -14,7 +14,7 @@
           <% @todo_tasks.each do |task| %>
             <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
               <%= link_to task.title, boardgroup_board_task_path(params[:boardgroup_id], task.board_id, task.id), class: "block w-full underline" %>
-              <p><%= task.dead_line %></p>
+              <p>締切:<%= task.dead_line %></p>
             </div>
           <% end %>
         <% else %>
@@ -30,7 +30,7 @@
           <% @do_tasks.each do |dtask| %>
             <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
               <%= link_to dtask.title, boardgroup_board_task_path(params[:boardgroup_id], dtask.board_id, dtask.id), class: "block w-full underline" %>
-              <p><%= task.dead_line %></p>
+              <p>締切:<%= dtask.dead_line %></p>
             </div>
           <% end %>
         <% else %>
@@ -46,7 +46,7 @@
           <% @finish_tasks.each do |ftask| %>
             <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
               <%= link_to ftask.title, boardgroup_board_task_path(params[:boardgroup_id], ftask.board_id, ftask.id), class: "block w-full underline" %>
-              <p><%= task.dead_line %></p>
+              <p>締切:<%= ftask.dead_line %></p>
             </div>
           <% end %>
         <% else %>
