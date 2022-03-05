@@ -1,15 +1,60 @@
-<h1>タスク一覧</h1>
-<%= link_to 'タスク作成', new_boardgroup_board_task_path(params[:boardgroup_id], params[:id]) %>
-<%= link_to 'ボード編集', edit_boardgroup_board_path(params[:boardgroup_id], params[:id]) %>
-<%= link_to 'ボード削除', boardgroup_board_path(params[:boardgroup_id], params[:id]), method: :delete %>
-<% @todo_tasks.each do |task| %>
-  <p><%= link_to task.title, boardgroup_board_task_path(params[:boardgroup_id], task.board_id, task.id) %></p>
-<% end %>
+<div class="h-full text-center bg-gray-300">
+  <div class="m-auto p-2 lg:w-2/3">
+    <h1 class="text-3xl">タスク一覧</h1>
+    <div class="block space-y-2 justify-between py-3 lg:flex lg:space-y-0 lg:space-x-1">
+      <div class="w-11/12 lg:w-full border-none rounded-lg bg-gray-800 p-1 mx-auto lg:m-0 my-1"><%= link_to 'タスク作成', new_boardgroup_board_task_path(params[:boardgroup_id], params[:id]), class: "block text-white" %></div>
+      <div class="w-11/12 lg:w-full border-none rounded-lg bg-gray-800 p-1 mx-auto lg:m-0 my-1"><%= link_to 'ボード編集', edit_boardgroup_board_path(params[:boardgroup_id], params[:id]), class: "block text-white" %></div>
+      <div class="w-11/12 lg:w-full border-none rounded-lg bg-gray-800 p-1 mx-auto lg:m-0 my-1"><%= link_to 'ボード削除', boardgroup_board_path(params[:boardgroup_id], params[:id]), method: :delete, class: "block text-white" %></div>
+    </div>
 
-<% @do_tasks.each do |dtask| %>
-  <p><%= link_to dtask.title, boardgroup_board_task_path(params[:boardgroup_id], dtask.board_id, dtask.id) %></p>
-<% end %>
+    <div class="space-y-4">
+      <div>
+        <h2 class="text-xl">Todo</h2>
+        <% unless @todo_tasks.size == 0 %>
+          <% @todo_tasks.each do |task| %>
+            <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
+              <%= link_to task.title, boardgroup_board_task_path(params[:boardgroup_id], task.board_id, task.id), class: "block w-full underline" %>
+              <p><%= task.dead_line %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200">
+            <p>タスクがありません</p>
+          </div>
+        <% end %>
+      </div>
 
-<% @finish_tasks.each do |ftask| %>
-  <p><%= link_to ftask.title, boardgroup_board_task_path(params[:boardgroup_id], ftask.board_id, ftask.id) %></p>
-<% end %>
+      <div>
+        <h2 class="text-xl">作業中</h2>
+        <% unless @do_tasks.size == 0 %>
+          <% @do_tasks.each do |dtask| %>
+            <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
+              <%= link_to dtask.title, boardgroup_board_task_path(params[:boardgroup_id], dtask.board_id, dtask.id), class: "block w-full underline" %>
+              <p><%= task.dead_line %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200">
+            <p>タスクがありません</p>
+          </div>
+        <% end %>
+      </div>
+
+      <div>
+        <h2 class="text-xl">完了</h2>
+        <% unless @finish_tasks.size == 0 %>
+          <% @finish_tasks.each do |ftask| %>
+            <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200 my-2">
+              <%= link_to ftask.title, boardgroup_board_task_path(params[:boardgroup_id], ftask.board_id, ftask.id), class: "block w-full underline" %>
+              <p><%= task.dead_line %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200">
+            <p>タスクがありません</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
