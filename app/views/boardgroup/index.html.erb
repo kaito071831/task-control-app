@@ -3,7 +3,7 @@
     <div class="block space-y-2 justify-between py-3 lg:flex lg:space-y-0">
       <div></div>
       <div><h1 class="text-3xl">所属グループ一覧</h1></div>
-      <div class="w-full border-none rounded-lg bg-gray-800 p-1 sm:w-auto"><%= link_to 'グループ新規作成', new_boardgroup_path, class: "text-white" %></div>
+      <div class="w-full border-none rounded-lg bg-gray-800 p-1 sm:w-auto"><%= link_to 'グループ新規作成', new_boardgroup_path, class: "block text-white" %></div>
     </div>
     <% @group.each do | board | %>
       <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200">
