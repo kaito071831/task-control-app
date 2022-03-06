@@ -65,3 +65,7 @@ gem 'dotenv-rails'
 
 # CSSフレームワーク
 gem "tailwindcss-rails", "~> 2.0"
+
+# Markdown
+gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
+gem 'coderay' 
