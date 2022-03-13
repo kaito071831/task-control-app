@@ -1,11 +1,5 @@
-<table>
-    <tr>
-      <th>グループのタイトル</th>
-      <td><%= form.text_field :title %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= form.submit '送信' %></td>
-    </tr>
-  </table>
-  
+<div class="text-center lg:w-3/4 m-auto">
+    <div>グループのタイトル</div>
+    <div><%= form.text_field :title %></div>
+    <div><%= form.submit '送信', class: "w-full border-none rounded bg-gray-800 text-white p-1 my-2" %></div>
+</div>

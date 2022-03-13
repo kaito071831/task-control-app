@@ -1,12 +1,12 @@
-<div class="h-full text-center bg-gray-300">
+<div class="background-base">
   <div class="m-auto p-2 lg:w-2/3">
     <div class="block space-y-2 justify-between py-3 lg:flex lg:space-y-0">
       <div></div>
       <div><h1 class="text-3xl">所属グループ一覧</h1></div>
-      <div class="w-full border-none rounded-lg bg-gray-800 p-1 sm:w-auto"><%= link_to 'グループ新規作成', new_boardgroup_path, class: "block text-white" %></div>
+      <div><%= link_to 'グループ新規作成', new_boardgroup_path, class: "block btn-base" %></div>
     </div>
     <% @group.each do | board | %>
-      <div class="border-solid rounded-sm border border-black text-left p-1 bg-gray-200">
+      <div class="content-box">
         <%= link_to board.title, boardgroup_path(board.id), class: "block w-full underline" %>
         <p>グループ作成日時:<%= board.created_at %></p>
       </div>

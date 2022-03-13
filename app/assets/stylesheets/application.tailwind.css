@@ -11,3 +11,23 @@
 }
 
 */
+
+@layer components {
+  .btn-base{
+    @apply w-full lg:w-auto rounded bg-gray-800 shadow-lg text-white p-1 my-2;
+  }
+
+  .btn-base:hover{
+    @apply opacity-75 transform translate-y-0.5 shadow-sm;
+  }
+
+  .background-base{
+    @apply h-full text-center bg-gray-300;
+  }
+
+  .content-box{
+    @apply rounded-xl text-left p-2 bg-gray-200 shadow-lg
+  }
+}
+
+

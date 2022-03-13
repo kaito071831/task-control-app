@@ -1,9 +1,9 @@
-<div class="h-full text-center bg-gray-300 p-5">
-  <div class="border-solid border-2 border-black bg-gray-200 lg:w-1/4 m-auto">
-    <div class="border-solid border-1 border-black bg-gray-600">
+<div class="background-base p-5">
+  <div class="rounded-lg bg-gray-200 lg:w-1/4 m-auto shadow-md">
+    <div class="rounded bg-gray-600 shadow-xl">
       <h2 class="text-white"><%= t('.sign_in') %></h2>
     </div>
-    <div class="p-2">
+    <div class="p-2 shadow-inner">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="mb-2">
           <%= f.label :email %><br />
@@ -23,7 +23,7 @@
         <% end %>
 
         <div>
-          <%= f.submit t('.sign_in'), class: "w-full lg:w-auto border-none rounded bg-gray-800 text-white p-1 my-2" %>
+          <%= f.submit t('.sign_in'), class: "btn-base" %>
         </div>
       <% end %>
     </div>
