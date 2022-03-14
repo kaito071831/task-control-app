@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_152526) do
   end
 
   create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", default: "example", null: false
+    t.string "title"
     t.bigint "boardgroup_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_152526) do
   end
 
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", default: "SampleTask", null: false
+    t.string "title"
     t.text "detail"
     t.datetime "dead_line"
     t.bigint "status_id", default: 1, null: false
