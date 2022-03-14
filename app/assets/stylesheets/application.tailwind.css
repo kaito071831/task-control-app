@@ -22,7 +22,7 @@
   }
 
   .background-base{
-    @apply h-full text-center ;
+    @apply h-[calc(100vh-7rem)] text-center;
   }
 
   .content-box{

@@ -11,13 +11,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render "shared/header" %>
+  <body class="bg-gray-300">
+    <div>
+      <%= render "shared/header" %>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div class="h-screen">
+    <div class="min-h-[calc(100vh-7rem)]">
       <%= yield %>
     </div>
-    <%= render "shared/footer" %>
+    <div>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
