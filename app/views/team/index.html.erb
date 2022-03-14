@@ -1,0 +1,17 @@
+<div class="background-base p-5">
+  <div class="rounded-xl bg-gray-200 shadow-lg lg:w-1/4 m-auto">
+    <div class="rounded bg-gray-600">
+      <h2 class="text-white p-1">共有者編集</h2>
+    </div>
+    <div class="p-2">
+      <div><%= link_to '共有者追加', new_boardgroup_team_path(params[:boardgroup_id]), class: "block btn-base" %></div>
+      <div><%= button_to 'グループから抜ける', boardgroup_team_path(params[:boardgroup_id], @team.id), method: :delete, class: "btn-base" %></div>
+      <div>
+        <div>所属しているユーザー</div>
+        <% @board.users.each do |user| %>
+          <%= user.email %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

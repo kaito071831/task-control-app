@@ -1,5 +1,0 @@
-<%= link_to '共有者追加', new_boardgroup_team_path(params[:boardgroup_id]) %>
-<%= link_to 'グループから抜ける', boardgroup_team_path(params[:boardgroup_id], params[:id]), method: :delete %>
-<% @teams.each do |team| %>
-  <%= team.user_id %>
-<% end %>

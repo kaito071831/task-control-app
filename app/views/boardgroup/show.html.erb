@@ -5,7 +5,7 @@
       <div class="mx-auto w-11/12 lg:w-full my-1 lg:my-0"><%= link_to 'ボード作成', new_boardgroup_board_path(params[:id]), class: "block btn-base" %></div>
       <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to 'グループ編集', edit_boardgroup_path(params[:id]), class: "block btn-base" %></div>
       <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to 'グループ削除', boardgroup_path(params[:id]), class: "block btn-base", method: :delete %></div>
-      <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to '共有設定', boardgroup_team_path(params[:id], @destroy_team.ids), class: "block btn-base" %></div>
+      <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to '共有設定', boardgroup_team_index_path(params[:id]), class: "block btn-base" %></div>
     </div>
     <% @board.each do | bd | %>
       <div class="content-box">

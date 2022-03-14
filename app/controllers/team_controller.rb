@@ -1,8 +1,9 @@
 class TeamController < ApplicationController
   before_action :authenticate_user!
 
-  def show
-    @teams = Team.where(boardgroup_id: params[:boardgroup_id])
+  def index
+    @board = Boardgroup.find(params[:boardgroup_id])
+    @team = current_user.teams.find_by(boardgroup: @board)
   end
 
   def new
@@ -29,7 +30,7 @@ class TeamController < ApplicationController
         redirect_to boardgroup_team_url(params[:boardgroup_id], params[:id]), notice: "Failed"
       end
     else
-      redirect_to boardgroup_team_url(params[:boardgroup_id], params[:id]), notice: "Make sure that there are at least two users who can see the board."
+      redirect_to boardgroup_team_index_url(params[:boardgroup_id]), notice: "Make sure that there are at least two users who can see the board."
     end
   end
 
