@@ -1,23 +1,23 @@
 <div class="h-full text-center bg-gray-300">
   <div class="m-auto p-2 lg:w-2/3">
     <div class="block lg:flex justify-end lg:space-x-2 p-1">
-      <div class="border-none rounded-lg bg-gray-800 p-1 mx-auto lg:m-0 my-1"><%= link_to 'タスク編集', edit_boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), class: "block text-white" %></div>
-      <div  class="border-none rounded-lg bg-gray-800 p-1 mx-auto lg:m-0 my-1"><%= link_to 'タスク削除', boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), method: :delete, class: "block text-white" %></div>
+      <div><%= link_to 'タスク編集', edit_boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), class: "block btn-base" %></div>
+      <div><%= link_to 'タスク削除', boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), method: :delete, class: "block btn-base" %></div>
     </div>
     <div class="space-y-4">
       <h2 class="text-3xl"><%= @task.title %></h2>
-      <div class="text-left border-solid rounded-sm border-2 border-black bg-gray-200">
-        <div class="border-solid border-b-1 border-black bg-gray-600 p-1"><p class="text-white">詳細</p></div>
-        <div class="border-solid border-b-2 border-gray-300 h-auto p-1">
+      <div class="rounded-xl text-left bg-gray-200 shadow-lg">
+        <div class="rounded border-b-1 bg-gray-600 p-1 shadow-md"><p class="text-white">詳細</p></div>
+        <div class="h-auto p-1 prose">
           <%= markdown(@task.detail) %>
         </div>
-        <div class="border-solid border-b-1 border-black bg-gray-600 p-1"><p class="text-white">締切</p></div>
-        <div class="border-solid border-b-2 border-gray-300 h-auto p-1">
+        <div class="bg-gray-600 p-1 shadow-md"><p class="text-white">締切</p></div>
+        <div class="h-auto p-1">
           <%= @task.dead_line %>
         </div>
-        <div class="border-solid border-b-1 border-black bg-gray-600 p-1"><p class="text-white">作成日時</p></div>
-        <div class="border-solid border-b-2 border-gray-300 h-auto p-1"><%= @task.created_at %></div>
-        <div class="border-solid border-b-1 border-black bg-gray-600 p-1"><p class="text-white">更新日時</p></div>
+        <div class="bg-gray-600 p-1 shadow-md"><p class="text-white">作成日時</p></div>
+        <div class="h-auto p-1"><%= @task.created_at %></div>
+        <div class="bg-gray-600 p-1 shadow-md"><p class="text-white">更新日時</p></div>
         <div class="p-1">
           <%= @task.updated_at %>
         </div>

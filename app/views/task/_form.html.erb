@@ -1,24 +1,14 @@
-  <table>
-    <tr>
-      <th>タスクのタイトル</th>
-      <td><%= form.text_field :title %></td>
-    </tr>
-    <tr>
-      <th>詳細情報</th>
-      <td><%= form.text_area :detail %></td>
-    </tr>
-    <tr>
-      <th>締切</th>
-      <td><%= form.datetime_field :dead_line %></td>
-    </tr>
-    <tr>
-      <th>状態</th>
-      <td><%= form.select :status_id, @statuses.map{ |st| [st.status, st.id] } %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <%= form.hidden_field :board_id, value: params[:board_id] %>
-      <td><%= form.submit '作成' %></td>
-    </tr>
-  </table>
-  
+<div class="text-center lg:w-3/4 m-auto">
+  <div class="space-y-2">
+    <div>タイトル</div>
+    <div><%= form.text_field :title, placeholder: "タイトルを入力してください" %></div>
+    <div>詳細</div>
+    <div><%= form.text_area :detail, size: "23*10", placeholder: "詳細を入力してください" %></div>
+    <div>締切</div>
+    <div><%= form.datetime_field :dead_line %></div>
+    <div>状態</div>
+    <div><%= form.select :status_id, @statuses.map{ |st| [st.status, st.id] } %></div>
+    <%= form.hidden_field :board_id, value: params[:board_id] %>
+    <div><%= form.submit '作成', class: "btn-base" %></div>
+  </div>
+</div>

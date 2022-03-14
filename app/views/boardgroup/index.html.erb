@@ -5,11 +5,13 @@
       <div><h1 class="text-3xl">所属グループ一覧</h1></div>
       <div><%= link_to 'グループ新規作成', new_boardgroup_path, class: "block btn-base" %></div>
     </div>
-    <% @group.each do | board | %>
-      <div class="content-box">
-        <%= link_to board.title, boardgroup_path(board.id), class: "block w-full underline" %>
-        <p>グループ作成日時:<%= board.created_at %></p>
-      </div>
-    <% end %>
+    <div class="space-y-2">
+      <% @group.each do | board | %>
+        <div class="content-box">
+          <%= link_to board.title, boardgroup_path(board.id), class: "block w-full underline" %>
+          <p>グループ作成日時:<%= board.created_at %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

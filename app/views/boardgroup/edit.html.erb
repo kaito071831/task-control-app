@@ -1,4 +1,12 @@
-<h1>グループ編集</h1>
-<%= form_with model: @group, url: boardgroup_path(params[:id]) do |form| %>
-  <%= render :partial => "form", :locals=>{:form => form} %>
-<% end %>
+<div class="background-base p-5">
+  <div class="rounded-xl bg-gray-200 shadow-lg lg:w-1/4 m-auto">
+    <div class="rounded bg-gray-600">
+      <h2 class="text-white p-1">グループ編集</h2>
+    </div>
+    <div class="p-2">
+      <%= form_with model: @group, url: boardgroup_path(params[:id]) do |form| %>
+        <%= render :partial => "form", :locals=>{:form => form} %>
+      <% end %>
+    </div>
+  </div>
+</div>
