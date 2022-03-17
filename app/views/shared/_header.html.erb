@@ -2,7 +2,7 @@
   <nav class="p-4 bg-teal-900">
     <div class="block lg:flex justify-between text-center text-white">
       <div><%= link_to 'TaskControl', root_path, class: "text-3xl" %></div>
-      <div class="block space-y-2 lg:flex lg:items-center lg:space-x-2 lg:space-y-0">
+      <div class="hidden space-y-2 lg:flex lg:items-center lg:space-x-2 lg:space-y-0">
         <% if user_signed_in? %>
           <div><%= link_to current_user.email, boardgroup_index_path, class: "underline" %></div>
           <div><%= link_to 'プロフィール変更', edit_user_registration_path, class: "block border-solid border-2 border-green-600 bg-green-400 px-4 py-2 rounded-full w-full" %></div>
@@ -12,6 +12,28 @@
           <div><%= link_to 'ログイン', new_user_session_path, class: "block border-solid border-2 border-green-600 bg-green-400 px-4 py-2 rounded-full w-full" %></div>
         <% end %>
       </div>
+      <div id="toggle" class="lg:hidden">
+        <div id="toggle-box">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </div>
     </div>
   </nav>
+
+  <div id="nav-content" class="lg:hidden">
+    <nav>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.email, boardgroup_index_path %></li>
+          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </header>
