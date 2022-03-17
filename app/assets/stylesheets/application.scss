@@ -86,6 +86,7 @@ width: 0;
   text-align: center;
   opacity: 0;
   transition: opacity .6s ease, visibility .6s ease;
+  display: none;
 }
 #nav-content ul {
   list-style: none;
@@ -109,6 +110,7 @@ width: 0;
 .is-open #nav-content {
   z-index: 999;
   visibility: visible;
+  display: block;
   opacity: 1;
 }
 .is-open #nav-content a{
