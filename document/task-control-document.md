@@ -1,4 +1,4 @@
-# Task-control 仕様書
+# Task-Control 仕様書
 
 ## 概要
 複数人でタスクを管理するためのアプリケーション
@@ -25,9 +25,6 @@
 
 ### Board: ボード自体を管理してます。
 	Detail: ボードの名前, どのボードグループ=>BoardGroup
-
-### Team: 複数ユーザーと複数ボードを結びつけるテーブル
-	Detail: User, BoardGroup
 
 ### Status: タスクの状態の一覧
 	Detail: 状態の内容
