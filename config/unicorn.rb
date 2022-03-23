@@ -1,5 +1,5 @@
 # アプリケーションの存在するディレクトリ
-app_path = File.expand_path('/home/ec2-user/task-control-app', __FILE__)
+app_path = File.expand_path('/home/ec2-user/task-control-app/', __FILE__)
 
 # アプリケーションサーバの性能を決定する
 worker_processes 2
