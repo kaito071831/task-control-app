@@ -38,7 +38,7 @@ namespace :unicorn do
 
   def unicorn_pid
     begin
-      File.read("/home/ec2-user/task-control/tmp/unicorn.pid").to_i
+      File.read("/home/ec2-user/task-control-app/tmp/unicorn.pid").to_i
     rescue Errno::ENOENT
       raise "Unicorn does not seem to be running"
     end
