@@ -9,7 +9,7 @@
       <div>
         <div>所属しているユーザー</div>
         <% @board.users.each do |user| %>
-          <%= user.email %>
+          <p>ID:<%= user.id%> <%= user.email %></p>
         <% end %>
       </div>
     </div>
