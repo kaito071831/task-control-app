@@ -48,14 +48,6 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-# EC2用
-# production:
-#   <<: *default
-#   database: task_control_production
-#   username: root
-#   password: <%= ENV['DB_PASSWORD_PRO'] %>
-#   socket: /var/lib/mysql/mysql.sock
-# heroku用
 production:
   <<: *default
   database: task_control_production
