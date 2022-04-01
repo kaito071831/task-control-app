@@ -7,14 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 unless Status.exists?
   Status.create!(
+    id: 1,
     status: 'Todo'
   )
   
   Status.create!(
+    id: 2,
     status: '作業中'
   )
   
   Status.create!(
+    id: 3,
     status: '完了'
   )
 end
