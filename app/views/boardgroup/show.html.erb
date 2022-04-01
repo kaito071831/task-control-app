@@ -7,11 +7,13 @@
       <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to 'グループ削除', boardgroup_path(params[:id]), class: "block btn-base", method: :delete %></div>
       <div class="mx-auto w-11/12 lg:w-full my-1"><%= link_to '共有設定', boardgroup_team_index_path(params[:id]), class: "block btn-base" %></div>
     </div>
-    <% @board.each do | bd | %>
-      <div class="content-box">
-        <%= link_to bd.title, boardgroup_board_path(bd.boardgroup_id, bd.id), class: "block w-full underline" %>
-        <p>ボード作成日時:<%= bd.created_at %></p>
-      </div>
-    <% end %>
+    <div class="space-y-2">
+      <% @board.each do | bd | %>
+        <div class="content-box">
+          <%= link_to bd.title, boardgroup_board_path(bd.boardgroup_id, bd.id), class: "block w-full underline" %>
+          <p>ボード作成日時:<%= bd.created_at %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
