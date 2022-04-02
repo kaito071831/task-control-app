@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <title>TaskControl</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:url" content="<%= ENV['APP_HOST'] %>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="TOP"/>
+    <meta property="og:description" content="あなたのタスクを視覚的に管理・共有します！
+      あなたの日常を変えるのに必要なものは、あなたのメールアドレスとあなたの決めたパスワードです。
+      さあ、始めよう！
+    "/>
+    <meta property="og:site_name" content="TaskControl"/>
+    <meta name="twitter:card" content="Summary Card"/>
+    <meta name="twitter:site" content="@kaito071831"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font" %>
