@@ -31,6 +31,11 @@
             <li><%= link_to 'タスク編集', edit_boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]) %></li>
             <li><%= link_to 'タスク削除', boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), method: :delete %></li>
           <% end %>
+        <% when "team" %>
+          <% if %w(index new).any?(action_name) %>
+            <li><%= link_to '共有者追加', new_boardgroup_team_path(params[:boardgroup_id]) %></li>
+            <li><%= button_to 'グループから抜ける', boardgroup_team_path(params[:boardgroup_id], @team.id), method: :delete %></li>
+          <% end %>
         <% end %>
         <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
         <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
