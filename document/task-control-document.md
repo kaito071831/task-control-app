@@ -34,3 +34,10 @@
 
 ### Teams: 各ボードグループの閲覧許可ユーザーのテーブル
 	Detail: user, boardgroup
+
+## 環境変数
+	- DB_USER データベースのユーザー名
+	- DB_PASSWORD データベースのパスワード
+	- MAIL_USER 配信用メールアカウントのメールアドレス
+	- MAIL_PASSWORD 配信用メールアカウントの認証コード
+	- APP_HOST アプリケーションのルートURL
