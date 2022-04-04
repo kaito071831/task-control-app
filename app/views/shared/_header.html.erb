@@ -12,28 +12,6 @@
           <div><%= link_to 'ログイン', new_user_session_path, class: "block border-solid border-2 border-green-600 bg-green-400 px-4 py-2 rounded-full w-full" %></div>
         <% end %>
       </div>
-      <div id="toggle" class="lg:hidden">
-        <div id="toggle-box">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-      </div>
     </div>
   </nav>
-
-  <div id="nav-content">
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.email, boardgroup_index_path %></li>
-          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
 </header>

@@ -1,0 +1,44 @@
+<div id="toggle" class="lg:hidden">
+  <div id="toggle-box">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<div id="nav-content">
+  <nav>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.email, boardgroup_index_path %></li>
+        <% case controller_name %>
+        <% when "boardgroup" %>
+          <li><%= link_to 'グループ新規作成', new_boardgroup_path %></li>
+          <% if %w(show edit).any?(action_name) %>
+            <li><%= link_to 'ボード作成', new_boardgroup_board_path(params[:id]) %></li>
+            <li><%= link_to 'グループ編集', edit_boardgroup_path(params[:id]) %></li>
+            <li><%= link_to 'グループ削除', boardgroup_path(params[:id]), method: :delete %></li>
+            <li><%= link_to '共有設定', boardgroup_team_index_path(params[:id]) %></li>
+          <% end %>
+        <% when "board" %>
+          <% if %w(show edit).any?(action_name) %>
+            <li><%= link_to 'タスク作成', new_boardgroup_board_task_path(params[:boardgroup_id], params[:id]) %></li>
+            <li><%= link_to 'ボード編集', edit_boardgroup_board_path(params[:boardgroup_id], params[:id]) %></li>
+            <li><%= link_to 'ボード削除', boardgroup_board_path(params[:boardgroup_id], params[:id]), method: :delete %></li>
+          <% end %>
+        <% when "task" %>
+          <% if %w(show edit).any?(action_name) %>
+            <li><%= link_to 'タスク編集', edit_boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]) %></li>
+            <li><%= link_to 'タスク削除', boardgroup_board_task_path(params[:boardgroup_id], params[:board_id], params[:id]), method: :delete %></li>
+          <% end %>
+        <% end %>
+        <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+        <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to '戻る', :back %></li>
+      <% else %>
+        <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
