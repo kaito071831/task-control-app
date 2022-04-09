@@ -6,11 +6,11 @@
   </div>
 </div>
 
-<div id="nav-content">
+<div id="nav-content" class="pt-5">
   <nav>
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.email, boardgroup_index_path %></li>
+        <li>ID: <%= current_user.id %><%= link_to current_user.email, boardgroup_index_path %></li>
         <% case controller_name %>
         <% when "boardgroup" %>
           <li><%= link_to 'グループ新規作成', new_boardgroup_path %></li>
